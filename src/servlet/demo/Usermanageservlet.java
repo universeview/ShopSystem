@@ -29,7 +29,7 @@ public class Usermanageservlet extends HttpServlet{
 	    resp.setCharacterEncoding("UTF-8");
 		 PrintWriter out = resp.getWriter();
 		
-		 List usersList = null;
+		 List usersList = (List)req.getAttribute("usersList");
 		 
 		 out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		 out.println("<html>");
@@ -57,16 +57,16 @@ public class Usermanageservlet extends HttpServlet{
 		 out.println("						<tr>");
 		 out.println("							<td width=\"5%\"></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"product2\"><img name=\"Image1\" border=\"0\" src=\"images/index.gif\" width=\"90\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"product2.do\"><img name=\"Image1\" border=\"0\" src=\"images/index.gif\" width=\"90\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"user2\"><img name=\"Image2\" border=\"0\" src=\"images/reg.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"user2.do\"><img name=\"Image2\" border=\"0\" src=\"images/reg.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"shop2\"><img name=\"Image4\" border=\"0\" src=\"images/cart.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"shop2.do\"><img name=\"Image4\" border=\"0\" src=\"images/cart.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"order2\"><img name=\"Image5\" border=\"0\" src=\"images/order.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"order2.do\"><img name=\"Image5\" border=\"0\" src=\"images/order.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"product2\"><img name=\"Image6\" border=\"0\" src=\"images/exit.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"product2.do\"><img name=\"Image6\" border=\"0\" src=\"images/exit.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("						</tr>");
 		 out.println("					</table>");
 		 out.println("				</td>");
@@ -132,7 +132,7 @@ public class Usermanageservlet extends HttpServlet{
 			 out.println("				</td>");
 			 out.println("				<td class=tablebody2 valign=\"middle\" align=\"center\" height=\"25\"  width=\"35%\">");
 			 out.println("					");
-			 out.println("						<input type=\"button\" value=\"修改\" onclick=\"javascript:window.location='user3?id="+user.getUserid()+"';\" /> ");
+			 out.println("						<input type=\"button\" value=\"修改\" onclick=\"javascript:window.location='user3.do?id="+user.getUserid()+"';\" /> ");
 			 out.println("						<input type=\"button\" value=\"删除\" disabled=\"disabled\" />");
 			 out.println("				</td>				");
 			 out.println("			</tr>");
@@ -164,26 +164,15 @@ public class Usermanageservlet extends HttpServlet{
 		 out.println("		  </tr>");
 		 out.println("		</table>");
 		 out.println("	</body>");
-		 out.println("</html>");		 
-		 out.close();
+		 out.println("</html>");
 		 
-//		 try{
-//			 
-//			 GwapService  userservice = new UsersServiceImpl();			 
-//		 	 usersList = userservice.getGwapList();
-//		     toUserList(out, usersList);
-//		     
-//			} catch (Exception e){
-//				toError(resp,e.getMessage());
-//			}
+		 
+		 out.close();
 		
 	}
 
 
-
 	
-
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

@@ -28,7 +28,7 @@ public class UserModifyservlet extends HttpServlet{
 		resp.setContentType("textml;charset=utf-8");
 		resp.setCharacterEncoding("UTF-8");
 		PrintWriter out = resp.getWriter();
-		List coninfosList = null;	
+		List coninfosList = (List)req.getAttribute("contactInfoList");	
 	//此处获取
 		String name=req.getParameter("id");
 		
@@ -58,16 +58,16 @@ public class UserModifyservlet extends HttpServlet{
 		out.println("						<tr>");
 		out.println("							<td width=\"5%\"></td>");
 		out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"product2\"><img name=\"Image1\" border=\"0\" src=\"images/index.gif\" width=\"90\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"product2.do\"><img name=\"Image1\" border=\"0\" src=\"images/index.gif\" width=\"90\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"user2\"><img name=\"Image2\" border=\"0\" src=\"images/reg.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"user2.do\"><img name=\"Image2\" border=\"0\" src=\"images/reg.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"shop2\"><img name=\"Image4\" border=\"0\" src=\"images/cart.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"shop2.do\"><img name=\"Image4\" border=\"0\" src=\"images/cart.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"order2\"><img name=\"Image5\" border=\"0\" src=\"images/order.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"order2.do\"><img name=\"Image5\" border=\"0\" src=\"images/order.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("");
 		 out.println("							");
-		 out.println("          <td width=\"10%\"><a href=\"product2\"><img name=\"Image6\" border=\"0\" src=\"images/exit.gif\" width=\"92\" height=\"36\"></a></td>");
+		 out.println("          <td width=\"10%\"><a href=\"product2.do\"><img name=\"Image6\" border=\"0\" src=\"images/exit.gif\" width=\"92\" height=\"36\"></a></td>");
 		 out.println("						</tr>");
 		out.println("					</table>");
 		out.println("				</td>");
@@ -256,21 +256,11 @@ public class UserModifyservlet extends HttpServlet{
 		out.println("</html>");
 
 out.close();
-		
-//	 try{
-//				 
-//				 GwapService  coninfoservice = new ContactInfoServiceImpl();			 
-//				 coninfosList = coninfoservice.getGwapList();
-//				 toContactList(out, coninfosList, name);
-//			     
-//				} catch (Exception e){
-//					e.printStackTrace();
-//					toError(resp,e.getMessage());
-//				}
 			
 	
 	}
 
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
